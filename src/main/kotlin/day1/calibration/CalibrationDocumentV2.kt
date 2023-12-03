@@ -1,3 +1,6 @@
+package day1.calibration
+
+import StringToDigit
 import java.util.*
 
 class CalibrationDocumentV2(document: String) {

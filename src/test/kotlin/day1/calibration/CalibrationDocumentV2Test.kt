@@ -1,3 +1,5 @@
+package day1.calibration
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -95,7 +97,8 @@ internal class CalibrationDocumentV2Test {
 
     @Test
     fun `sum calibration values - spelled out digits`() {
-        assertThat(CalibrationDocumentV2("""
+        assertThat(
+            CalibrationDocumentV2("""
             two1nine
             eightwothree
             abcone2threexyz
@@ -109,7 +112,8 @@ internal class CalibrationDocumentV2Test {
 
     @Test
     fun `sum calibration values - digits overlap`() {
-        assertThat(CalibrationDocumentV2("""
+        assertThat(
+            CalibrationDocumentV2("""
             4nineighthree
         """.trimIndent()).sumOfCalibrationValues
         ).isEqualTo(43);

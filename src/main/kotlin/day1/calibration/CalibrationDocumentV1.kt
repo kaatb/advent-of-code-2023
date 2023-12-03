@@ -1,3 +1,5 @@
+package day1.calibration
+
 import java.util.*
 
 class CalibrationDocumentV1(document: String) {
