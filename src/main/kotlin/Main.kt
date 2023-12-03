@@ -1,7 +1,19 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
-
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    println("day 01 - A >> " + calibrationDocumentValues())
+    println("day 01 - B >> " + calibrationDocumentValuesWithSpelledOutDigits())
 }
+
+private fun calibrationDocumentValues(): Int {
+    val readText = getInput("day-01.txt")
+    return CalibrationDocumentV1(readText.trimIndent()).sumOfCalibrationValues
+}
+
+private fun calibrationDocumentValuesWithSpelledOutDigits(): Int {
+    val readText = getInput("day-01.txt")
+    return CalibrationDocumentV2(readText.trimIndent()).sumOfCalibrationValues
+}
+
+private fun getInput(fileName: String): String {
+    return {}.javaClass.getResource("/$fileName").readText()
+}
+

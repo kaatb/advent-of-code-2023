@@ -1,6 +1,6 @@
 import java.util.*
 
-class CalibrationDocument(document: String) {
+class CalibrationDocumentV2(document: String) {
     val lines: List<String>
 
     init {
@@ -12,16 +12,11 @@ class CalibrationDocument(document: String) {
 
     val calibrationValues: List<Int>
         get() = lines
-            .map { it.getFirstDigit() + it.getLastDigit() }
-            .map { Integer.parseInt(it) }
+            .map { (it.getFirstDigit() + it.getLastDigit()).toInt() }
             .toList()
 
-    fun sumOfCalibrationValues(stringDigits: Boolean = false): Int {
-        if(stringDigits){
-            return calibrationValues.sum()
-        }
-        return calibrationValues.sum()
-    }
+    val sumOfCalibrationValues: Int
+        get() = calibrationValues.sum()
 
     private fun String.getFirstDigit(stringDigits: Boolean = false): String {
         if (this.first().isDigit()) {

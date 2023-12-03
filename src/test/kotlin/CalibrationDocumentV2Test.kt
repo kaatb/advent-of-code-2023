@@ -1,11 +1,11 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-internal class CalibrationDocumentTest {
+internal class CalibrationDocumentV2Test {
 
     @Test
     fun `create calibration document splits document in lines`() {
-        val calibrationDocument = CalibrationDocumentV1(
+        val calibrationDocument = CalibrationDocumentV2(
             """
             1abc2
             pqr3stu8vwx
@@ -24,7 +24,7 @@ internal class CalibrationDocumentTest {
     @Test
     fun `calibration values gets first and last digit from line`() {
         assertThat(
-            CalibrationDocumentV1(
+            CalibrationDocumentV2(
                 """
             1abc2
         """.trimIndent()
@@ -35,7 +35,7 @@ internal class CalibrationDocumentTest {
     @Test
     fun `calibration values gets first and last digit from line even when digit is not first or last character`() {
         assertThat(
-            CalibrationDocumentV1(
+            CalibrationDocumentV2(
                 """
             pqr3stu8vwx
         """.trimIndent()
@@ -46,7 +46,7 @@ internal class CalibrationDocumentTest {
     @Test
     fun `calibration values gets first and last digit from line, multiple digits`() {
         assertThat(
-            CalibrationDocumentV1(
+            CalibrationDocumentV2(
                 """
             a1b2c3d4e5f
         """.trimIndent()
@@ -57,7 +57,7 @@ internal class CalibrationDocumentTest {
     @Test
     fun `calibration values gets first and last digit from line, only 1 digit available`() {
         assertThat(
-            CalibrationDocumentV1(
+            CalibrationDocumentV2(
                 """
             treb7uchet
         """.trimIndent()
@@ -68,7 +68,7 @@ internal class CalibrationDocumentTest {
     @Test
     fun `calibration values - multiple lines`() {
         assertThat(
-            CalibrationDocumentV1("""
+            CalibrationDocumentV2("""
             1abc2
             pqr3stu8vwx
             a1b2c3d4e5f
@@ -89,7 +89,7 @@ internal class CalibrationDocumentTest {
             a1b2c3d4e5f
             treb7uchet
         """.trimIndent()
-            ).sumOfCalibrationValues()
+            ).sumOfCalibrationValues
         ).isEqualTo(142);
     }
 
@@ -103,7 +103,15 @@ internal class CalibrationDocumentTest {
             4nineeightseven2
             zoneight234
             7pqrstsixteen
-        """.trimIndent()).sumOfCalibrationValues(true)
+        """.trimIndent()).sumOfCalibrationValues
         ).isEqualTo(281);
+    }
+
+    @Test
+    fun `sum calibration values - digits overlap`() {
+        assertThat(CalibrationDocumentV2("""
+            4nineighthree
+        """.trimIndent()).sumOfCalibrationValues
+        ).isEqualTo(43);
     }
 }
