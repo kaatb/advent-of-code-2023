@@ -18,6 +18,7 @@ fun main() {
     println("day 03 - B >> " + EngineSchematicV2(getInput("day-03.txt")).gearRatios)
 
     println("day 04 - A >> " + ScratchCards(getInput("day-04.txt")).points)
+    println("day 04 - B >> " + ScratchCards(getInput("day-04.txt")).totalScratchCards())
 }
 
 private fun cubesGames(): CubesGame {

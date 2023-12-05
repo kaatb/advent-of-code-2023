@@ -14,4 +14,10 @@ internal class Day4EndToEndTest {
         assertThat(ScratchCards(readText).points).isEqualTo(23750)
     }
 
+    @Test
+    fun `input day4 B`() {
+        val readText = {}.javaClass.getResource("/day-04.txt").readText();
+        assertThat(ScratchCards(readText).totalScratchCards()).isEqualTo(13261850)
+    }
+
 }
