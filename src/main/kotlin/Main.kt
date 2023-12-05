@@ -3,6 +3,7 @@ import day1.calibration.CalibrationDocumentV2
 import day2.cubes.CubesGame
 import day3.gearratio.EngineSchematic
 import day3.gearratio.EngineSchematicV2
+import day4.scratchcard.ScratchCards
 import java.util.*
 
 fun main() {
@@ -15,6 +16,8 @@ fun main() {
 
     println("day 03 - A >> " + EngineSchematic(getInput("day-03.txt")).allNumbers)
     println("day 03 - B >> " + EngineSchematicV2(getInput("day-03.txt")).gearRatios)
+
+    println("day 04 - A >> " + ScratchCards(getInput("day-04.txt")).points)
 }
 
 private fun cubesGames(): CubesGame {
