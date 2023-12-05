@@ -6,10 +6,7 @@ class CalibrationDocumentV1(document: String) {
     val lines: List<String>
 
     init {
-        val split = ArrayList<String>()
-        split.addAll(Arrays.asList(*document.split("\n".toRegex()).dropLastWhile { it.isEmpty() }
-            .toTypedArray()))
-        lines = split.toList()
+        lines = document.lines()
     }
 
     val calibrationValues: List<Int>
